@@ -819,7 +819,7 @@ pub fn evaluate_alns(
 
     let tid = bam.header().tid(haps.locus.chrom.as_bytes()).unwrap();
 
-    bam.fetch(tid, haps.locus.start, haps.locus.end)?;
+    bam.fetch((tid, haps.locus.start, haps.locus.end))?;
 
     debug!("Evaluating record {}", locus_str);
     for _rec in bam.records() {
